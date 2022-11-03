@@ -10,7 +10,7 @@ output "name" {
 
 output "public_key" {
   description = "The public SSH key"
-  value       = module.key.public_key
+  value       = module.key.fingerprint
 }
 
 output "private_key_filename" {

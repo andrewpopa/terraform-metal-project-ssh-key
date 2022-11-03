@@ -7,9 +7,10 @@ resource "tls_private_key" "key" {
   ecdsa_curve = "P521"
 }
 
-resource "equinix_metal_ssh_key" "this" {
-  name       = var.project_ssh_name
+resource "equinix_metal_project_ssh_key" "this" {
+  name       = random_pet.this.id
   public_key = tls_private_key.key.public_key_openssh
+  project_id = var.project_id
 }
 
 resource "local_sensitive_file" "private_key_pem" {
