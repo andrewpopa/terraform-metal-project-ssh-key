@@ -17,3 +17,8 @@ output "private_key_filename" {
   description = "Private key filename"
   value       = local_sensitive_file.private_key_pem.filename
 }
+
+output "public_key" {
+  description = "Public OpenSSH key"
+  value       = tls_private_key.key.public_key_openssh
+}
